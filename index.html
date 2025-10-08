@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Daddy</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="screen">
+        <div id="giftContainer">
+      <h1>HAPPY BIRTHDAY DADDY</h1>
+      <p>Click the gift to open up your suprise</p>
+
+      <img
+        id="giftIcon"
+        class="left"
+        src="—Pngtree—blue cartoon gift vector cartoon_4659617.png"
+        alt=""
+      />
+        </div>
+   <div id="letterScreen">
+            <h2>A Special Message for You, Dad</h2>
+
+            <!-- PHOTO GALLERY SECTION ADDED HERE -->
+            <div id="photoGallery">
+             <img src="WhatsApp Image 2021-12-01 at 16.41.40.jpeg" alt="">
+               <img src="1566424734768.jpg" alt="">
+                 <img src="download.jpg" alt="">
+                   <img src="images.jpg" alt="">
+            </div>
+            
+            <p id="letterContent"></p>
+        </div>
+    </div>
+
+     <script>
+        
+        const giftIcon = document.getElementById('giftIcon');
+        const giftContainer = document.getElementById('giftContainer');
+        const letterScreen = document.getElementById('letterScreen');
+        const letterContentElement = document.getElementById('letterContent');
+        
+        // Define the personalized message
+        const letterMessage = `Happy Birthday, Dad!
+
+Thank you for being the most incredible guide, cheerleader, and friend a person could ask for. Every year, you set a new bar for what it means to be amazing.
+
+I hope this surprise brings a smile to your face. You deserve all the joy in the world today.
+
+With all my love,
+Your Daughter`; // REMEMBER TO PERSONALIZE THIS!
+
+        
+        giftIcon.addEventListener('click', () => {
+            // 1. Start the fade-out of the gift container
+            giftContainer.style.opacity = '0';
+            
+            // 2. After the fade-out duration (0.5s), hide it and reveal the letter
+            setTimeout(() => {
+                giftContainer.style.display = 'none';
+                
+                // Set the message content
+                letterContentElement.textContent = letterMessage;
+                letterContentElement.style.fontFamily = 'Fugaz One';
+               
+
+                // Make the letter screen visible (display property)
+                letterScreen.style.display = 'block';
+                 
+                 // Start invisible
+
+                // Force a reflow to ensure the display change is registered before opacity change
+                // This is needed for the transition to work.
+                void letterScreen.offsetWidth; 
+
+                // Start the fade-in (opacity property)
+                letterScreen.style.opacity = '1';
+
+
+            }, 500); // Matches the giftContainer transition duration (0.5s)
+        });
+        
+    </script>
+  </body>
+</html>
